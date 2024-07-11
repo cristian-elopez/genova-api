@@ -38,7 +38,7 @@ export const createOrders = async (req: Request,res: Response): Promise<void> =>
 
 export const getOrders = async (req: Request,res: Response): Promise<void> => {
     try {
-        const orders = await Order.find({estate: true});
+        const orders = await Order.find();
         res.status(200).json({
             orders
         });
