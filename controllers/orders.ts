@@ -38,7 +38,8 @@ export const createOrders = async (req: Request,res: Response): Promise<void> =>
 
 export const getOrders = async (req: Request,res: Response): Promise<void> => {
     try {
-        const orders = await Order.find();
+        const userId: string = req.body.confirmedUser._id;
+        const orders = await Order.find({user: userId});
         res.status(200).json({
             orders
         });
