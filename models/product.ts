@@ -18,16 +18,16 @@ export interface IProduct {
 const productSchema = new Schema({
     tittle: {
         type: String,
-        required: [true, "Tittle is required"],
+        required: [true, "El título es obligatorio"],
         unique: true
     },
     category: {
         type: String,
-        required: [true, "Category is required"]
+        required: [true, "La categoría es obligatoria"]
     },
     gender: {
         type: String,
-        required: [true, "Genre is required"]
+        required: [true, "El género es obligatorio"]
     },
     desc: {
         type: String,
@@ -35,7 +35,7 @@ const productSchema = new Schema({
     },
     price: {
         type: Number,
-        required: [true, "Price is required"]
+        required: [true, "El precio es obligatorio"]
     },
     quantity: {
         type: Number,
@@ -43,7 +43,7 @@ const productSchema = new Schema({
     },
     color: {
         type: String,
-        required: [true, "Color is required"]
+        required: [true, "El color es obligatorio"]
     },
     size: {
         type: String,
@@ -59,7 +59,7 @@ const productSchema = new Schema({
     },
     images: {
         type: [String],
-        required: [true, "Image is required"]
+        required: [true, "La imagen es obligatoria"]
     }
 });
 

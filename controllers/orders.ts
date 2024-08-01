@@ -12,7 +12,7 @@ export const createOrders = async (req: Request,res: Response): Promise<void> =>
         
         if (products.length > confirmedProducts.length || !confirmedProducts) {
             res.status(404).json({
-                msg: "Some products not found"
+                msg: "No se han encontrado algunos productos"
             })
             return;
         };
@@ -25,13 +25,13 @@ export const createOrders = async (req: Request,res: Response): Promise<void> =>
         await order.save();
         
         res.status(201).json({
-            msg: "Order created successfully",
+            msg: "Pedido creado con éxito",
             order
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })  
     }
 };
@@ -46,7 +46,7 @@ export const getOrders = async (req: Request,res: Response): Promise<void> => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })        
     };
 };

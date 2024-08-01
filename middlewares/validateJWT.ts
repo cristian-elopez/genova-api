@@ -6,7 +6,7 @@ export const validateJWT = async (req: Request,res: Response,next: NextFunction)
     const token = req.headers["x-token"] as string;
     if(!token) {
         res.status(401).json({
-            msg: "No token provided"
+            msg: "No se ha proporcionado ningún token"
         })
         return
     };
@@ -17,7 +17,7 @@ export const validateJWT = async (req: Request,res: Response,next: NextFunction)
         const confirmedUser: IUser | null = await User.findById(id);
         if(!confirmedUser) {
             res.status(404).json({
-                msg: "User not found"
+                msg: "Usuario no encontrado"
             })
             return
         }

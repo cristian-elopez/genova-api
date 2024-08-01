@@ -10,7 +10,7 @@ export const jwtGenerator = (id: string): Promise<string> => {
             (err: Error | null, token: string | undefined) => {
                 if (err) {
                     console.log(err);
-                    reject("Error generating token");
+                    reject("Error al generar el token");
                 } else {
                     resolve(token as string);
                 }

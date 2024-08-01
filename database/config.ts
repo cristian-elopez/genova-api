@@ -4,12 +4,12 @@ export const dbConecction = async (): Promise<void> => {
     try {
         const dbURL = process.env.DB_URL;
         if (!dbURL) {
-            throw new Error("DB_URL is not defined");
+            throw new Error("DB_URL no está definida");
         };
         await mongoose.connect(dbURL);
-        console.log("Connected to the database");
+        console.log("Conectado a la base de datos");
     } catch (error) {
         console.log(error);
-        throw new Error("Could not connect to database");        
+        throw new Error("No se pudo conectar a la base de datos");        
     }
 };

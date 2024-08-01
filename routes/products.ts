@@ -11,14 +11,14 @@ const router = Router();
 router.post(
     "/create",
     [
-        check("tittle", "Tittle is required").not().isEmpty(),
-        check("category", "Category is required").not().isEmpty(),
-        check("desc", "Description is required").not().isEmpty(),
-        check("price", "Price is required").not().isEmpty(),
-        check("quantity", "Quantity is required").not().isEmpty(),
-        check("color", "Color is required").not().isEmpty(),
-        check("size", "Size is required").not().isEmpty(),
-        check("images", "Images are required").not().isEmpty(),
+        check("tittle", "El título es obligatorio").not().isEmpty(),
+        check("category", "La categoría es obligatoria").not().isEmpty(),
+        check("desc", "La descripción es obligatoria").not().isEmpty(),
+        check("price", "El precio es obligatorio").not().isEmpty(),
+        check("quantity", "La cantidad es obligatoria").not().isEmpty(),
+        check("color", "El color es obligatorio").not().isEmpty(),
+        check("size", "El talle es obligatorio").not().isEmpty(),
+        check("images", "Las imágenes son obligatorias").not().isEmpty(),
         validateJWT,
         isVerified,
         isAdmin,
@@ -39,7 +39,7 @@ router.get(
 router.patch(
     "/update",
     [
-        check("tittle", "Tittle is required").not().isEmpty(),
+        check("tittle", "El título es obligatorio").not().isEmpty(),
         validateJWT,
         isVerified,
         isAdmin,
@@ -53,7 +53,7 @@ router.patch(
 router.delete(
     "/delete",
     [
-        check("tittle", "Tittle is required").not().isEmpty(),
+        check("tittle", "El título es obligatorio").not().isEmpty(),
         validateJWT,
         isVerified,
         isAdmin,

@@ -2,7 +2,6 @@ import { Model, Schema, Types, model } from "mongoose";
 import { IProduct } from "./product";
 
 interface IShippingDetails {
-    name: string;
     cellphone: number;
     location: string;
     adress: string;
@@ -39,10 +38,6 @@ const OrderSchema = new Schema<IOrder>({
         required: true
     },
     shippingDetails: {
-        name: {
-            type: String,
-            required: true
-        },
         cellphone: {
             type: Number,
             required: true

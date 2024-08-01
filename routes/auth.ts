@@ -11,9 +11,9 @@ const router = Router();
 router.post(
     "/register", 
     [
-        check("name", "Name is required").not().isEmpty(),
-        check("email", "Email is required").isEmail(),
-        check("password", "Password must be at least 6 characters").isLength({min:6}),
+        check("name", "El nombre es obligatorio").not().isEmpty(),
+        check("email", "El correo electrónico es obligatorio").isEmail(),
+        check("password", "La contraseña debe tener al menos 6 caracteres").isLength({min:6}),
         check("email").custom(emailExist),
         errorCollector
     ], 
@@ -22,10 +22,10 @@ router.post(
 router.post(
     "/login",
     [
-        check("email", "Email is not valid").isEmail(),
-        check("email", "Email is required").not().isEmpty(),
-        check("password", "Password is required").not().isEmpty(),
-        check("password", "Password must be at least 6 characters").isLength({min:6}),
+        check("email", "El correo electrónico no es válido").isEmail(),
+        check("email", "El correo electrónico es obligatorio").not().isEmpty(),
+        check("password", "La contraseña es obligatoria").not().isEmpty(),
+        check("password", "La contraseña debe tener al menos 6 caracteres").isLength({min:6}),
         errorCollector
     ],
     login
@@ -33,8 +33,8 @@ router.post(
 router.patch(
     "/verify",
     [
-        check("email", "Email is not valid").isEmail(),
-        check("email", "Email is required").not().isEmpty(),
+        check("email", "El correo electrónico no es válido").isEmail(),
+        check("email", "El correo electrónico es obligatorio").not().isEmpty(),
         check("code").not().isEmpty(),
         validateJWT,
         errorCollector

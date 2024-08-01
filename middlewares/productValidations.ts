@@ -7,7 +7,7 @@ export const tittleProductExist = async (req: Request,res: Response,next: NextFu
     const productExist = await Product.findOne({tittle});
     if(productExist) {
         res.status(400).json({
-            msg: `The product "${tittle}" already exists`,
+            msg: `El producto "${tittle}" ya existe`,
         })
         return
     };
@@ -23,7 +23,7 @@ export const categoryValidation = (req: Request,res: Response,next: NextFunction
         category !== CATEGORIES.pantalon &&
         category !== CATEGORIES.accesorio) {
         res.status(400).json({
-            msg: `Product category is not correct`,
+            msg: `La categoría del producto no es correcta`,
         })
         return
     };
@@ -36,7 +36,7 @@ export const genderValidation = (req: Request,res: Response,next: NextFunction):
         gender !== GENDER.masculino && 
         gender !== GENDER.femenino) {
         res.status(400).json({
-            msg: `Product gender is not correct`,
+            msg: `El género del producto no es correcto`,
         })
         return
     };
@@ -54,7 +54,7 @@ export const sizeValidation = (req: Request,res: Response,next: NextFunction): v
         size !== SIZES.xl &&
         size !== SIZES.xxl) {
         res.status(400).json({
-            msg: `Product size is not correct`,
+            msg: `La talla del producto no es correcta`,
         })
         return
     };
@@ -66,7 +66,7 @@ export const productExist = async (req: Request,res: Response,next: NextFunction
     const productExist: IProduct | null = await Product.findOne({tittle});
     if(!productExist) {
         res.status(404).json({
-            msg: `Product not found`,
+            msg: `Producto no encontrado`,
         })
         return
     };

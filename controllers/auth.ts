@@ -26,14 +26,14 @@ export const register = async (req: Request,res: Response): Promise<void> => {
         await sendEmail(email,newCode);
 
         res.status(201).json({
-            msg: "User created successfully",
+            msg: "Usuario creado exitosamente",
             user
         })
 
     } catch (error) {
         console.log(error);
         res.status(400).json({
-            msg: "Invalid request"
+            msg: "Peticion inválida"
         })
     };
 };
@@ -45,7 +45,7 @@ export const login = async (req: Request,res: Response): Promise<void> => {
 
         if (!user) {
             res.status(404).json({
-                msg: "User not found",
+                msg: "Usuario no encontrado",
             });
             return
         };
@@ -53,7 +53,7 @@ export const login = async (req: Request,res: Response): Promise<void> => {
         const validPassword = await bcryptjs.compare(password, user.password);
         if (!validPassword) {
             res.status(401).json({
-                msg: "Invalid password",
+                msg: "Contraseña inválida",
             });
             return
         };
@@ -67,7 +67,7 @@ export const login = async (req: Request,res: Response): Promise<void> => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })
     };
 };
@@ -79,19 +79,19 @@ export const verifyUser = async (req: Request,res: Response): Promise<void> => {
 
         if (!user) {
             res.status(404).json({
-                msg: "User not found",
+                msg: "Usuario no encontrado",
             });
             return
         };
         if (user.verified) {
             res.status(400).json({
-                msg: "User already verified",
+                msg: "Usuario ya verificado",
             });
             return
         };
         if (user.code !== code) {
             res.status(401).json({
-                msg: "Invalid code",
+                msg: "Códogo inválido",
             });
             return
         };
@@ -102,12 +102,12 @@ export const verifyUser = async (req: Request,res: Response): Promise<void> => {
         );
 
         res.status(202).json({
-            msg: "User verified successfully"
+            msg: "Usuario verificado correctamente"
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })
     }
 };
@@ -121,7 +121,7 @@ export const getUsers = async (req: Request,res: Response): Promise<void> => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })
     };
 };

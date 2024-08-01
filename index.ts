@@ -41,7 +41,7 @@ function listen(): void {
         res.sendFile(__dirname + "/public/index.html")
     })
     app.listen(port, () => {
-        console.log(`Server is running on port ${port}`)
+        console.log(`Servidor corriendo en el puerto ${port}`)
     })
 };
 

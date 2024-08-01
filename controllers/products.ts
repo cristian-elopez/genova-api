@@ -10,13 +10,13 @@ export const createProduct = async (req: Request,res: Response): Promise<void> =
         await product.save();
         
         res.status(201).json({
-            msg: "Product created successfully",
+            msg: "Producto creado con éxito",
             product
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })        
     };
 };
@@ -30,7 +30,7 @@ export const getProducts = async (req: Request,res: Response): Promise<void> => 
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })        
     };
 };
@@ -46,13 +46,13 @@ export const updateProduct = async (req: Request, res: Response): Promise<void> 
         );
         
         res.status(200).json({
-            msg: "Product updated successfully",
+            msg: "Producto actualizado con éxito",
             updateProduct
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         })   
     };
 };
@@ -65,13 +65,13 @@ export const softDeleteProduct = async (req: Request, res: Response): Promise<vo
             {estate: false}        
         );
         res.status(200).json({
-            msg: "Product deleted successfully",
+            msg: "Producto eliminado con éxito",
             deleteProduct
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         }) 
     }
 };
@@ -81,13 +81,13 @@ export const hardDeleteProduct = async (req: Request, res: Response): Promise<vo
         const {tittle} = req.body;
         const deleteProduct: IProduct | null = await Product.findOneAndDelete({tittle});
         res.status(200).json({
-            msg: "Product deleted successfully",
+            msg: "Producto eliminado con éxito",
             deleteProduct
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: "Internal server error"
+            msg: "Error interno del servidor"
         }) 
     }
 };
